@@ -92,6 +92,7 @@ const buildScanResult = async (rawUrl) => {
   const targetUrl = normalizeUrl(rawUrl);
   const parsed = new URL(targetUrl);
   const hostname = parsed.hostname.replace(/^www\./i, '');
+  const startTime = Date.now();
 
   let httpResponse;
   let errorMessage = null;
