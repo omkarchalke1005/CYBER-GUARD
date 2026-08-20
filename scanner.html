@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberGuard | Web Scanner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">C</div>
+          <div>
+            <div class="brand-name">CYBERGUARD</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="login.html">Login</a>
+          <a class="nav-link" href="dashboard.html">Dashboard</a>
+          <a class="nav-link active" href="scanner.html">Scanner</a>
+          <a class="nav-link" href="profile.html">Profile</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn btn-ghost" href="dashboard.html">Dashboard</a>
+          <a class="btn btn-primary" href="report.html">Security Report</a>
+        </div>
+      </header>
+
+      <main class="content-page">
+        <section class="page-head">
+          <div>
+            <p class="eyebrow">WEB SECURITY</p>
+            <h1>Web Scanner</h1>
+          </div>
+        </section>
+
+        <section class="single-panel scanner-panel">
+          <div class="scanner-input-wrap">
+            <label for="site-url">Enter URL to scan</label>
+            <div class="scanner-form-row">
+              <input id="site-url" type="text" placeholder="https://example.com" value="example.com" />
+              <button id="scan-btn" class="btn btn-primary" type="button">Scan Now</button>
+            </div>
+          </div>
+
+          <div class="scan-progress-panel" id="scan-progress-panel">
+            <div class="scan-progress-header">
+              <span id="scan-phase">Waiting for scan</span>
+              <span id="scan-percent">0%</span>
+            </div>
+            <div class="scan-progress-bar">
+              <span id="scan-progress-bar"></span>
+            </div>
+            <ul id="scan-checks" class="scan-check-list">
+              <li class="pending">URL validation — Pending</li>
+              <li class="pending">HTTPS / SSL — Pending</li>
+              <li class="pending">Security headers — Pending</li>
+              <li class="pending">HTTP configuration — Pending</li>
+              <li class="pending">Cookie security — Pending</li>
+              <li class="pending">Redirect configuration — Pending</li>
+              <li class="pending">Technology detection — Pending</li>
+              <li class="pending">Basic vulnerability indicators — Pending</li>
+            </ul>
+          </div>
+
+          <div class="panel-section" id="scan-results-panel">
+            <h3>Scan Results</h3>
+            <p>Target: <span id="target-url">example.com</span></p>
+            <div class="scan-box">
+              <div class="scan-meter">
+                <span id="scan-score">0%</span>
+              </div>
+              <ul id="scan-results">
+                <li>Waiting for a website scan to begin.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="report-box hidden" id="report-panel">
+            <div class="report-overview">
+              <div>
+                <span class="report-label">Target URL</span>
+                <strong id="report-url">—</strong>
+              </div>
+              <div>
+                <span class="report-label">Overall Score</span>
+                <strong id="report-score">0 / 100</strong>
+              </div>
+              <div>
+                <span class="report-label">Risk Level</span>
+                <strong id="report-risk">Pending</strong>
+              </div>
+            </div>
+
+            <div class="graph-grid" id="graph-grid"></div>
+
+            <div class="vuln-summary" id="vuln-summary"></div>
+
+            <div class="findings-wrap">
+              <h4>Detailed Findings</h4>
+              <ul id="report-findings"></ul>
+            </div>
+
+            <div class="recommendations-wrap">
+              <h4>Recommendations</h4>
+              <ul id="report-recommendations"></ul>
+            </div>
+
+            <div class="report-actions">
+              <button id="view-report-button" class="btn btn-primary" type="button">Open Security Report</button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>© 2026 CyberGuard. Understand. Detect. Protect.</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberGuard | Security Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">C</div>
+          <div>
+            <div class="brand-name">CYBERGUARD</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="login.html">Login</a>
+          <a class="nav-link" href="dashboard.html">Dashboard</a>
+          <a class="nav-link active" href="report.html">Report</a>
+          <a class="nav-link" href="profile.html">Profile</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn btn-ghost" href="dashboard.html">Dashboard</a>
+          <a class="btn btn-primary" href="profile.html">Profile</a>
+        </div>
+      </header>
+
+      <main class="content-page">
+        <section class="page-head">
+          <div>
+            <p class="eyebrow">RISK STATUS</p>
+            <h1>Security Score</h1>
+          </div>
+        </section>
+
+        <section class="report-wrap">
+          <div class="score-ring-box">
+            <div class="score-ring">
+              <span id="report-score-ring">0</span>
+            </div>
+            <h2 id="report-risk-title">Pending</h2>
+          </div>
+
+          <div class="report-box panel-section">
+            <h3>Security Report</h3>
+            <p>Target: <strong id="report-target">—</strong></p>
+            <p>Scan Time: <span id="report-time">—</span></p>
+            <ul class="bullet-list" id="report-summary-list"></ul>
+            <div id="report-graphs" class="graph-grid"></div>
+            <div id="report-vuln-summary" class="vuln-summary"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>© 2026 CyberGuard. Understand. Detect. Protect.</p>
+      </footer>
+    </div>
+
+    <script>
+      const getStoredReport = () => {
+        try {
+          const stored = localStorage.getItem('cyberguard_last_report');
+          return stored ? JSON.parse(stored) : null;
+        } catch {
+          return null;
+        }
+      };
+
+      const report = getStoredReport();
+      const scoreRing = document.getElementById('report-score-ring');
+      const riskTitle = document.getElementById('report-risk-title');
+      const reportTarget = document.getElementById('report-target');
+      const reportTime = document.getElementById('report-time');
+      const summaryList = document.getElementById('report-summary-list');
+      const reportGraphs = document.getElementById('report-graphs');
+      const reportVulnSummary = document.getElementById('report-vuln-summary');
+
+      if (report) {
+        if (scoreRing) scoreRing.textContent = report.score;
+        if (riskTitle) riskTitle.textContent = report.riskLevel;
+        if (reportTarget) reportTarget.textContent = report.url;
+        if (reportTime) reportTime.textContent = new Date(report.scanTime || Date.now()).toLocaleString();
+
+        if (summaryList) {
+          const items = [
+            `Target URL: ${report.url}`,
+            `Scan Date: ${new Date(report.scanTime || Date.now()).toLocaleString()}`,
+            `Overall Security Score: ${report.score} / 100`,
+            `Risk Level: ${report.riskLevel}`,
+            `Status: ${report.status || 'Completed'}`,
+            `Assessment: ${report.summary?.assessment || 'Review completed.'}`
+          ];
+          summaryList.innerHTML = items.map((item) => `<li>${item}</li>`).join('');
+        }
+
+        if (reportGraphs) {
+          reportGraphs.innerHTML = (report.graphData || []).map((item) => `
+            <div class="graph-item">
+              <h5>${item.label}</h5>
+              <div class="graph-bar"><span style="width: ${Math.min(100, Number(item.value || 0))}%"></span></div>
+            </div>
+          `).join('');
+        }
+
+        if (reportVulnSummary) {
+          const summary = report.vulnerabilitySummary || { critical: 0, high: 0, medium: 0, low: 0, passed: 0 };
+          reportVulnSummary.innerHTML = `
+            <div class="vuln-chip"><strong>${summary.critical}</strong>Critical</div>
+            <div class="vuln-chip"><strong>${summary.high}</strong>High</div>
+            <div class="vuln-chip"><strong>${summary.medium}</strong>Medium</div>
+            <div class="vuln-chip"><strong>${summary.low}</strong>Low</div>
+            <div class="vuln-chip"><strong>${summary.passed}</strong>Passed</div>
+          `;
+        }
+      }
+    </script>
+  </body>
+</html>

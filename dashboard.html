@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberGuard | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell dashboard-shell-page">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">C</div>
+          <div>
+            <div class="brand-name">CYBERGUARD</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link active" href="dashboard.html">Dashboard</a>
+          <a class="nav-link" href="scanner.html">Scanner</a>
+          <a class="nav-link" href="threat-center.html">Threat Center</a>
+          <a class="nav-link" href="cyber-lab.html">Cyber Lab</a>
+          <a class="nav-link" href="cryptography.html">Cryptography</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn btn-ghost" href="profile.html">Profile</a>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </header>
+
+      <main class="dashboard-main">
+        <section class="dashboard-topbar">
+          <div>
+            <p class="eyebrow">SECURITY OVERVIEW</p>
+            <h1>Good Morning, <span id="dashboard-user-name">Omkar</span> 👋</h1>
+          </div>
+        </section>
+
+        <section class="dashboard-layout">
+          <div class="status-card glass-card">
+            <div class="status-header">
+              <p>Your Security Status</p>
+            </div>
+
+            <div class="score-block">
+              <div class="shield-icon">🛡️</div>
+              <div>
+                <div class="score-line">82/100</div>
+                <div class="score-label">GOOD SECURITY</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="categories-card glass-card">
+            <h3>Security Categories</h3>
+
+            <div class="category-row">
+              <span>Web Security</span>
+              <div class="progress-wrap">
+                <div class="progress-bar green" style="width: 88%"></div>
+              </div>
+              <strong>88%</strong>
+            </div>
+
+            <div class="category-row">
+              <span>Network Security</span>
+              <div class="progress-wrap">
+                <div class="progress-bar yellow" style="width: 72%"></div>
+              </div>
+              <strong>72%</strong>
+            </div>
+
+            <div class="category-row">
+              <span>Authentication</span>
+              <div class="progress-wrap">
+                <div class="progress-bar green" style="width: 91%"></div>
+              </div>
+              <strong>91%</strong>
+            </div>
+
+            <div class="category-row">
+              <span>Cryptography</span>
+              <div class="progress-wrap">
+                <div class="progress-bar green" style="width: 95%"></div>
+              </div>
+              <strong>95%</strong>
+            </div>
+
+            <div class="category-row">
+              <span>Threat Protection</span>
+              <div class="progress-wrap">
+                <div class="progress-bar yellow" style="width: 68%"></div>
+              </div>
+              <strong>68%</strong>
+            </div>
+          </div>
+
+          <div class="quick-actions glass-card">
+            <h3>Quick Actions</h3>
+            <div class="action-grid">
+              <button class="action-btn" type="button" data-target="scanner.html">🔍 Scan Website</button>
+              <button class="action-btn" type="button" data-target="threat-center.html">🚨 Check Threat</button>
+              <button class="action-btn" type="button" data-target="cyber-lab.html">🧪 Cyber Lab</button>
+              <button class="action-btn" type="button" data-target="cryptography.html">🔐 Crypto Lab</button>
+            </div>
+          </div>
+
+          <div class="alerts-card glass-card">
+            <h3>Recent Alerts</h3>
+            <ul>
+              <li>🚨 Suspicious login detected</li>
+              <li>⚠️ Weak password detected</li>
+              <li>✅ Security scan completed</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

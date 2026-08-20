@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CyberGuard | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="auth-body">
+    <div class="auth-layout">
+      <aside class="auth-visual">
+        <div class="brand brand-login">
+          <div class="brand-mark">C</div>
+          <div class="brand-name">CYBERGUARD</div>
+        </div>
+
+        <p class="eyebrow">SECURE ACCESS</p>
+        <h1>Understand. Detect. Protect.</h1>
+        <p class="auth-copy">
+          Protect your systems with real-time monitoring, security analysis, and proactive defense tools.
+        </p>
+
+        <div class="auth-points">
+          <span>Threat Intelligence</span>
+          <span>Vulnerability Scanning</span>
+          <span>Secure Learning Lab</span>
+        </div>
+      </aside>
+
+      <main class="auth-card-wrap">
+        <section class="auth-card-panel">
+          <div class="auth-badge">CyberGuard</div>
+
+          <div class="auth-toggle">
+            <button class="toggle-btn active" data-form="login" type="button">Login</button>
+            <button class="toggle-btn" data-form="register" type="button">Register</button>
+          </div>
+
+          <div id="auth-message" class="auth-message" aria-live="polite"></div>
+
+          <form id="login-form" class="form-panel active" novalidate>
+            <h2>Welcome Back 👋</h2>
+
+            <label>
+              <span>Email</span>
+              <input id="login-email" type="email" placeholder="name@cyberguard.io" required />
+            </label>
+
+            <label>
+              <span>Password</span>
+              <input id="login-password" type="password" placeholder="Enter your password" required />
+            </label>
+
+            <div class="row-inline">
+              <label class="check-wrap">
+                <input type="checkbox" />
+                <span>Remember me</span>
+              </label>
+              <a href="#" id="forgot-password">Forgot Password?</a>
+            </div>
+
+            <button class="btn btn-primary full" type="submit">LOGIN</button>
+
+            <p class="auth-link-row">
+              Don't have an account?
+              <button type="button" class="text-link" data-form="register">Create Account</button>
+            </p>
+          </form>
+
+          <form id="register-form" class="form-panel" novalidate>
+            <h2>Create Your CyberGuard Account</h2>
+
+            <label>
+              <span>Full Name</span>
+              <input id="register-name" type="text" placeholder="Alex Morgan" required />
+            </label>
+
+            <label>
+              <span>Email</span>
+              <input id="register-email" type="email" placeholder="alex@company.com" required />
+            </label>
+
+            <label>
+              <span>Password</span>
+              <input id="register-password" type="password" placeholder="Create a secure password" required />
+            </label>
+
+            <label>
+              <span>Confirm Password</span>
+              <input id="register-confirm" type="password" placeholder="Confirm your password" required />
+            </label>
+
+            <button class="btn btn-primary full" type="submit">CREATE ACCOUNT</button>
+
+            <p class="auth-link-row">
+              Already have an account?
+              <button type="button" class="text-link" data-form="login">Login</button>
+            </p>
+          </form>
+
+          <div id="setup-panel" class="setup-panel hidden">
+            <h2>Welcome to CyberGuard, <span id="setup-name">User</span>! 👋</h2>
+            <p class="setup-title">What are you interested in?</p>
+
+            <div class="setup-options">
+              <label class="option-item">
+                <input type="radio" name="interest" value="Web Security" checked />
+                <span>Web Security</span>
+              </label>
+              <label class="option-item">
+                <input type="radio" name="interest" value="Network Security" />
+                <span>Network Security</span>
+              </label>
+              <label class="option-item">
+                <input type="radio" name="interest" value="Cryptography" />
+                <span>Cryptography</span>
+              </label>
+              <label class="option-item">
+                <input type="radio" name="interest" value="Cybersecurity Learning" />
+                <span>Cybersecurity Learning</span>
+              </label>
+            </div>
+
+            <button id="continue-setup" class="btn btn-primary full" type="button">Continue</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-auth-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
